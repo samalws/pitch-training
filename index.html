@@ -1,0 +1,26 @@
+<script src="https://raw.githubusercontent.com/PencilCode/musical.js/refs/heads/master/musical.min.js"></script>
+
+<script>
+
+const inst = new Instrument();
+
+const options = () => document.getElementById("options").value.split("|");
+
+var note = undefined;
+
+const playNote = () => { if (note != undefined) { inst.tone(note) }};
+const rngNote = () => { note = options()[Math.floor(Math.random()*options().length)]; playNote(); document.getElementById("correct").innerHTML = "" };
+const guess = () => { document.getElementById("correct").innerHTML = document.getElementById("guess").value == note ? "correct" : "wrong" };
+
+</script>
+
+<input type="text" id="options" />
+<br>
+<br>
+<button onclick="playNote()">play</button>
+<button onclick="rngNote()">rng</button>
+<br>
+<br>
+<input type="text" id="guess" />
+<button onclick="guess()">guess</button>
+<p id="correct"></p>
