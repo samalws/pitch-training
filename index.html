@@ -9,7 +9,7 @@ const options = () => document.getElementById("options").value.split("|");
 var note = undefined;
 
 const playNote = () => { if (note != undefined) { inst.tone(note) }};
-const rngNote = () => { note = options()[Math.floor(Math.random()*options().length)]; playNote(); document.getElementById("correct").innerHTML = "" };
+const rngNote = () => { note = options()[Math.floor(Math.random()*options().length)]; playNote(); document.getElementById("correct").innerHTML = ""; document.getElementById("guess").value = "" };
 const guess = () => { document.getElementById("correct").innerHTML = document.getElementById("guess").value == note ? "correct" : "wrong" };
 
 </script>
